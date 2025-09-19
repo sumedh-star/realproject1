@@ -1,0 +1,32 @@
+#stage1
+
+FROM openjdk:17-jdk-slim  AS project3
+
+WORKDIR /app
+
+COPY  README.md /app
+
+COPY quotes.txt /app
+
+COPY src/Main.java /app
+
+RUN javac Main.java 
+
+
+
+
+
+#stage 
+
+FROM gcr.io/distroless/java17-debian12
+
+WORKDIR /app
+
+COPY /app app.jar
+
+EXPOSE 8000
+
+ENV JAVAPATH="src/Main.java"
+
+CMD ["Main"]
+

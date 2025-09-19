@@ -1,0 +1,19 @@
+services:
+  junnonapp:
+    build:
+      context: .
+    container_name: motivation
+    ports:
+      - "8000:8000"
+    volumes:
+      - salar:/app/hello
+    networks:
+      - animal
+
+volumes:
+  salar:
+networks:
+  animal:
+
+
+   
